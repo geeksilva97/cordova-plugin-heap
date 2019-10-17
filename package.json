@@ -1,0 +1,24 @@
+{
+  "name": "cordova-plugin-heap",
+  "version": "0.0.1",
+  "description": "A Cordova plugin for the Heap.io SDK",
+  "cordova": {
+    "id": "cordova-plugin-heap",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sumbria/cordova-plugin-heap"
+  },
+  "keywords": [
+    "cordova",
+    "heap",
+    "heap.io",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT"
+}

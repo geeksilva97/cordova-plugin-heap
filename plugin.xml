@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-heap" version="0.0.1">
+
+    <name>HeapIo Plugin</name>
+
+    <description>
+        A Cordova plugin for the Heap.io SDK
+    </description>
+
+    <license>MIT</license>
+
+    <!-- JavaScript Interface -->
+    <js-module src="www/heap-plugin.js" name="HeapIoPlugin">
+        <clobbers target="HeapIoPlugin" />
+    </js-module>
+
+    <preference name="APP_ID" />
+    <access origin="https://heapanalytics.com" />
+    <access origin="https://cdn.heapanalytics.com" />
+
+    <!-- iOS Configuration -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HeapIoPlugin">
+                <param name="ios-package" value="HeapIoPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/HeapIoPlugin.h" />
+        <source-file src="src/ios/HeapIoAppDelegate.m" />
+
+        <dependency id="cordova-plugin-add-swift-support" version="^2.0.2" />
+
+        <config-file target="*-Info.plist" parent="HeapAppID">
+            <string>$APP_ID</string>
+        </config-file>
+
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="Heap" />
+            </pods>
+        </podspec>
+    </platform>
+
+</plugin>
